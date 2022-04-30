@@ -153,6 +153,8 @@ input {
 
 button {
   cursor: pointer;
+  border: none;
+  outline: none;
 }
 
 input {
@@ -307,17 +309,26 @@ input {
   padding: 1rem 2rem;
   font-weight: var(--font-semi-bold);
   transition: .3s;
-  border-radius: 0 0 0.5rem 0;
+  border-radius: 0.5rem;
 }
 
-.button:hover {
+.button:hover{
   background-color: var(--first-color-alt);
 }
 
+.button__icon{
+  transition: .3s;
+}
+
+.button:hover .button__icon{
+  transform: translateX(.25rem);
+}
+
+
 .button--flex {
-  display: flex;
+  display: inline-flex;
   align-items: center;
-  column-gap: .25rem;
+  column-gap: .5rem;
 }
 
 .button--link {
@@ -325,8 +336,9 @@ input {
   padding: 0;
 }
 
-.button--link:hover {
+.button--link:hover .button__icon{
   background: none;
+  transform: translateX(.25rem);
 }
 
 /* Controls */
@@ -413,7 +425,8 @@ input {
   background-color: var(--white-color);
   color: var(--first-color);
   border-radius: .5rem;
-  font-weight: var(--font-medium);
+  font-weight: var(--font-semi-bold);
+  transition: .3s;
 }
 
 .islands__button:hover {
@@ -421,8 +434,15 @@ input {
 }
 
 .islands__button-icon {
-  font-size: 1.5rem;
-  margin-left: .5rem;
+  transition: .3s;
+  font-size: 1.2rem;
+  font-weight: var(--font-semi-bold);
+  margin-left: 0.5rem;
+}
+
+
+.islands__button:hover .islands__button-icon{
+  transform: translateX(.25rem);
 }
 
 .islands__video {
@@ -489,7 +509,11 @@ input {
 .about__img-two:hover {
   transform: var(--img-scale);
 }
-
+.select {
+  border: 0px;
+  background: transparent;
+  padding: 2px;
+}
 /*=============== testimoni ===============*/
 .testimoni__container {
   row-gap: 2.5rem;
@@ -663,7 +687,6 @@ input {
 }
 .place__card{
     height: 200px;
-
 }
 
 .place__container {
@@ -685,13 +708,11 @@ input {
 .place__img {
   transition: var(--img-transition);
   filter: brightness(0.6);
-
 }
 
 .place__content, .place__title {
   color: var(--white-color);
 }
-
 
 .place__content {
   position: absolute;
@@ -733,12 +754,31 @@ input {
   font-size: var(--smaller-font-size);
   /* margin-bottom: var(--mb-1-25); */
 }
+.place__icon {
+  transition: .4s;
+}
 
 .place__button {
   position: absolute;
   right: 0;
   bottom: 0;
   padding: .75rem 1rem;
+}
+
+.place__card:hover .place__icon{
+  transform: translateY(-.2rem);
+
+}
+
+.place__flex {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.place__flex:hover .place__icon {
+  transform: translateX(.5rem);
 }
 
 /*=============== SUBSCRIBE ===============*/
@@ -870,6 +910,7 @@ input {
   opacity: .9;
   z-index: var(--z-tooltip);
   transition: .4s;
+  border-radius: .2rem;
 }
 
 .scrollup:hover {
@@ -880,11 +921,16 @@ input {
 .scrollup__icon {
   color: var(--white-color);
   font-size: 1.2rem;
+  transition: .4s;
 }
 
 /* Show scroll */
 .show-scroll {
   bottom: 5rem;
+}
+
+.scrollup:hover .scrollup__icon {
+  transform: translateY(-.2rem);
 }
 
 
@@ -1008,6 +1054,9 @@ input {
 @media screen and (min-width: 768px) {
   .nav {
     height: calc(var(--header-height) + 1.5rem);
+  }
+  option{
+    color: var(--text-color);
   }
   .nav__link {
     color: var(--white-color);
